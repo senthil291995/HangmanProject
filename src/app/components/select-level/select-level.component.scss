@@ -1,0 +1,39 @@
+.view-container, .view-content, .flex-container {
+  height: 100%;
+  width: 100%;
+}
+
+.heading-container, .action-btns {
+  color: #707070;
+}
+
+.action-btns {
+  font-weight: 600;
+  width: 10rem;
+}
+
+.heading-container {
+  margin-bottom: 4rem;
+}
+
+.lives-count {
+  display: block;
+  font-style: italic;
+  font-size: x-small;
+  color: #707070;
+  font-weight: 500;
+  height: 1rem;
+  line-height: 1rem;
+  margin-top: 0.25rem;
+}
+
+.action-btns {
+  &.mat-stroked-button {
+    line-height: 1rem;
+    height: 3.5rem;
+  }
+}
+
+.level-txt {
+  font-size: medium;
+}

@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgMaterialModule } from './modules/ng-material.module';
+import { FlexLayoutModule} from '@angular/flex-layout';
+import { SelectLevelComponent } from './components/select-level/select-level.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SelectLevelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgMaterialModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

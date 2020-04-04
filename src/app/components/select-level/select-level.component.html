@@ -1,8 +1,20 @@
 <div class="view-container">
   <div class="view-content">
     <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
-      <div class="heading-container">Hangman</div>
-      <div class="levels-buttons">
+      <h1 class="heading-container">HANGMAN</h1>
+      <div class="levels-buttons" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+        <button mat-stroked-button class="action-btns">
+          <span class="level-txt">EASY</span>
+          <span class="lives-count">(11 Lives)</span>
+        </button>
+        <button mat-stroked-button class="action-btns">
+          <span class="level-txt">MEDIUM</span>
+          <span class="lives-count">(8 Lives)</span>
+        </button>
+        <button mat-stroked-button class="action-btns">
+          <span class="level-txt">HARD</span>
+          <span class="lives-count">(5 Lives)</span>
+        </button>
       </div>
     </div>
   </div>
