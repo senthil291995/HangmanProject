@@ -1,1 +1,88 @@
-<div>App works</div>
+<!--<div>{{levelSelected}}</div>-->
+<!--https://www.youtube.com/watch?v=x54478DCz6c-->
+<div>{{levelSelected}}</div>
+<div class="view-container">
+    <div id="pharase-container" class="heading-container" fxLayoutAlign="center center">
+        <div class="text-box" *ngFor="let string of objects">
+            <div *ngIf="string.toBeHidden == false && string.RandomString!='emptyspace'" class="string-visible">
+                <svg height="20" width="20">
+                    <text x="0" y="15" fill="red">{{string.RandomString}}</text>
+                </svg>
+            </div>
+
+            <div *ngIf="string.toBeHidden == true && string.RandomString!='emptyspace'" class="string-hidden">
+                <svg height="20" width="20">
+                    <text x="0" y="15" fill="red">{{string.RandomString}}</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div fxLayoutAlign="center center">
+        <div class="levels-buttons" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+            <div class="text-box" (click)="keyboardClick($event)" *ngFor="let keyboardArraystring of keyboardArray">
+                <div class="string-visible">
+                    <svg height="20" width="20">
+                        <text x="0" y="15" fill="red">{{keyboardArraystring}}</text>
+                    </svg>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div id="Key_board" class="view-container">
+        <h2>Remaining lives {{lifeValue}}</h2>
+        <div class="svg-container">
+            <svg height="500" width="500" style="transform: translate(100px, 149px);">
+                <g id="human_body" style="transform: translate(30px, 30px)">
+                    <g id="head" *ngIf="lifeValue <=7">
+                        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="transparent" />
+                    </g>
+                    <g id="eye1" *ngIf="lifeValue <=6">
+                        <line x1="30" y1="30" x2="40" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+                        <line x1="40" y1="30" x2="30" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+                    </g>
+                    <g id="eye2" *ngIf="lifeValue <=6">
+                        <line x1="55" y1="30" x2="65" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+                        <line x1="65" y1="30" x2="55" y2="40" style="stroke:rgb(255,0,0);stroke-width:2" />
+
+                    </g>
+                    <g id="body" *ngIf="lifeValue <=5">
+                        <line x1="50" y1="90" x2="50" y2="200" style="stroke:rgb(255,0,0);stroke-width:3" />
+                    </g>
+                    <g id="hand1" *ngIf="lifeValue <=4">
+                        <line x1="30" y1="140" x2="50" y2="120" style="stroke:rgb(255,0,0);stroke-width:3" />
+                    </g>
+                    <g id="hand2" *ngIf="lifeValue <=3">
+                        <line x1="50" y1="120" x2="70" y2="140" style="stroke:rgb(255,0,0);stroke-width:3" />
+                    </g>
+                    <g id="leg1" *ngIf="lifeValue <=2">
+                        <line x1="30" y1="220" x2="50" y2="200" style="stroke:rgb(255,0,0);stroke-width:3" />
+                    </g>
+                    <g id="leg2" *ngIf="lifeValue <=1">
+                        <line x1="70" y1="220" x2="50" y2="200" style="stroke:rgb(255,0,0);stroke-width:3" />
+                    </g>
+                    <g id="rope_and_stand">
+                        <g id="stand1" *ngIf="lifeValue <=11">
+                            <line x1="250" y1="220" x2="150" y2="220" style="stroke:rgb(255,0,0);stroke-width:3" />
+                        </g>
+                        <g id="stand2" *ngIf="lifeValue <=10">
+                            <line x1="200" y1="-10" x2="200" y2="220" style="stroke:rgb(255,0,0);stroke-width:3" />
+                        </g>
+                        <g id="stand3" *ngIf="lifeValue <=9">
+                            <line x1="50" y1="-10" x2="202" y2="-10" style="stroke:rgb(255,0,0);stroke-width:3" />
+
+                        </g>
+                        <g id="stand4" *ngIf="lifeValue <=8">
+                            <line x1="50" y1="-12" x2="50" y2="10" style="stroke:rgb(255,0,0);stroke-width:3" />
+
+                        </g>
+                    </g>
+
+                </g>
+
+            </svg>
+        </div>
+    </div>
+</div>

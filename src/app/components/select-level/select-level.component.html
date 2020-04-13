@@ -3,15 +3,15 @@
     <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
       <h1 class="heading-container">HANGMAN</h1>
       <div class="levels-buttons" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
-        <button mat-stroked-button class="action-btns" [routerLink]="['/letter-guessing']">
+        <button mat-stroked-button class="action-btns" (click)="easyButtonClick($event)" [routerLink]="['/letter-guessing']">
           <span class="level-txt">EASY</span>
           <span class="lives-count">(11 Lives)</span>
         </button>
-        <button mat-stroked-button class="action-btns" [routerLink]="['/letter-guessing']">
+        <button mat-stroked-button class="action-btns"onclick="mediumButtonClick($event)" [routerLink]="['/letter-guessing']">
           <span class="level-txt">MEDIUM</span>
           <span class="lives-count">(8 Lives)</span>
         </button>
-        <button mat-stroked-button class="action-btns" [routerLink]="['/letter-guessing']">
+        <button mat-stroked-button class="action-btns"onclick="hardButtonClick($event)" [routerLink]="['/letter-guessing']">
           <span class="level-txt">HARD</span>
           <span class="lives-count">(5 Lives)</span>
         </button>
@@ -19,3 +19,4 @@
     </div>
   </div>
 </div>
+<!--<app-letter-guessing [levelSelected]="levelSelected"></app-letter-guessing>-->

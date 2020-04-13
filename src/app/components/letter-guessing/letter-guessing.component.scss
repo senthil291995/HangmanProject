@@ -1,0 +1,33 @@
+// .string-visible{
+//     padding-left: 5px;
+//     padding-top: 5px;
+// visibility: hidden;
+// }
+.string-visible{
+    padding-left: 5px;
+    padding-top: 5px;
+    
+}
+.heading-container {
+  margin-bottom: 10rem;
+}
+.text-box{
+     border-radius: 6px;
+    border: 1px solid gray;
+    width: 20px;
+}
+.keyboard-containe{
+    margin-top:  100px;
+}
+.svg-container{
+    width: 30%;
+    background-color: lightgray;
+    height: 30%
+}
+.string-hidden{
+  border-radius: 6px;
+  visibility: hidden;
+    border: 1px solid gray;
+    width: 20px;
+    background-color:   solid gray;
+}
