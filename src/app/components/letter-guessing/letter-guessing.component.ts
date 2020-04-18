@@ -6,18 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./letter-guessing.component.scss']
 })
 export class LetterGuessingComponent implements OnInit {
-  //public name: string;
   public lifeValue: number;
   public levelSelected: string = "easy";
   public keyBoardString: string;
   public randomStringGenerated: string;
   public stringIndexToBeHidden: any[];
   public stringLength: number;
-  public objects: any[] = [];
-  public keyboardArray: any[] = [];
+  public objects: any[];
+  public keyboardArray: any[];
 
   constructor() {
-
+    this.keyboardArray = [];
   }
 
   keyboardClick(event) {
