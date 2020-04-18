@@ -7,14 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LetterGuessingComponent implements OnInit {
   //public name: string;
-  public lifeValue: number
-  levelSelected: string = "easy";
-  keyBoardString: any
-  public randomStringGenerated: any;
-  stringIndexToBeHidden: any[] = [];
-  stringLength: any;
-  objects: any[] = [];
-  keyboardArray: any[] = [];
+  public lifeValue: number;
+  public levelSelected: string = "easy";
+  public keyBoardString: string;
+  public randomStringGenerated: string;
+  public stringIndexToBeHidden: any[];
+  public stringLength: number;
+  public objects: any[] = [];
+  public keyboardArray: any[] = [];
+
+  constructor() {
+
+  }
+
   keyboardClick(event) {
     let selectedKeyBoardValue = event.currentTarget.innerText
     let isCorrectSelect: boolean = false;
