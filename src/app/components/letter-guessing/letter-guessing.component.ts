@@ -40,9 +40,7 @@ export class LetterGuessingComponent implements OnInit {
     this.stringIndexToBeHidden = [4, 7, 9, 11, 14, 21, 22, 28];
     this.stringLength = this.randomStringGenerated.length;
     this.objects = []
-    for (let k: number = 0; k < this.keyBoardString.length; k++) {
-      this.keyboardArray[k] = this.keyBoardString.charAt(k)
-    }
+    this.keyboardArray = this.keyBoardString.toUpperCase().split('');
     for (let i: number = 0; i < this.stringLength; i++) {
       this.objects[i] = []
       if (this.randomStringGenerated.charAt(i).toString() === " ") {
