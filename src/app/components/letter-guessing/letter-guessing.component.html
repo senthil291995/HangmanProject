@@ -1,184 +1,86 @@
-<!--<div>{{levelSelected}}</div>-->
-<!--https://www.youtube.com/watch?v=x54478DCz6c-->
-<div class="view-container">
-  <!-- <div id="pharase-container" class="heading-container" fxLayoutAlign="center center">
-        <div class="text-box" *ngFor="let string of objects">
-            <div *ngIf="string.toBeHidden == false && string.RandomString!='emptyspace'" class="string-visible">
-                <svg height="20" width="20">
-                    <text x="0" y="15" fill="red">{{string.RandomString}}</text>
-                </svg>
-            </div>
+<div class="view-container" fxLayout="row">
 
-            <div *ngIf="string.toBeHidden == true && string.RandomString!='emptyspace'" class="string-hidden">
-                <svg height="20" width="20">
-                    <text x="0" y="15" fill="red">{{string.RandomString}}</text>
-                </svg>
-            </div>
+  <div class="button-container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="6.25rem">
+    <div id="random-phrase-container">
+      <div class="randomword" fxLayout="row" fxLayoutAlign="center center">
+        <div class="first-row-container" *ngFor="let string of objects; let i = index" [ngClass]="{'hide-input': i > 12}">
+          <div *ngIf="string.toBeHidden == false&&string.lineNumber=='0' && string.RandomString!='emptyspace'" class="key-input">{{ string.RandomString }}</div>
+          <div *ngIf="string.toBeHidden == true&&string.lineNumber=='0' && string.RandomString!='emptyspace'" class="key-input-hidden"></div>
+          <div *ngIf="string.RandomString=='emptyspace'" class="key-input-empty"></div>
         </div>
-    </div> -->
-  <!-- (click)="keyboardClick($event)" -->
-  <div fxLayoutAlign="center center">
-    <div class="levels-buttons"
-      fxLayout="column"
-      fxLayoutAlign="start center"
-      fxLayoutGap="1rem">
-      <div class="first-row"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="0.25rem">
-        <div class="first-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
+      </div>
+      <div class="randomword" fxLayout="row" fxLayoutAlign="center center">
+        <div class="first-row-container" *ngFor="let string of objects; let i = index" [ngClass]="{'hide-input': i < 12}">
+          <div *ngIf="string.toBeHidden == false&&string.lineNumber=='1' && string.RandomString!='emptyspace'" class="key-input">{{ string.RandomString }}</div>
+          <div *ngIf="string.toBeHidden == true&&string.lineNumber=='1' && string.RandomString!='emptyspace'" class="key-input-hidden"></div>
+          <div *ngIf="string.RandomString=='emptyspace'" class="key-input-empty"></div>
+        </div>
+      </div>
+    </div>
+    <div id="keyboad-container">
+      <div class="first-row" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.25rem">
+        <div (click)="keyboardClick($event)" class="first-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
           [ngClass]="{'hide-input': i > 9}">
           <div class="key-input">{{ keyboardArraystring }}</div>
         </div>
       </div>
-      <div class="second-row"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="0.25rem">
-        <div class="second-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
+      <div class="second-row" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.25rem">
+        <div (click)="keyboardClick($event)" class="second-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
           [ngClass]="{'hide-input': (i < 10) || (i > 18)}">
           <div class="key-input">{{ keyboardArraystring }}</div>
         </div>
       </div>
-      <div class="third-row"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-        fxLayoutGap="0.25rem">
-        <div class="third-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
+      <div class="third-row" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.25rem">
+        <div (click)="keyboardClick($event)" class="third-row-container" *ngFor="let keyboardArraystring of keyboardArray; let i = index"
           [ngClass]="{'hide-input': i < 19 || i > 25}">
           <div class="key-input">{{ keyboardArraystring }}</div>
         </div>
       </div>
     </div>
+
   </div>
-  <div id="Key_board" class="view-container">
-    <h2>Remaining lives {{ lifeValue }}</h2>
-    <div class="svg-container">
+  <div id="svg-container" class="svg-container" fxLayout="row" fxLayoutAlign="center center">
+    <div>
       <svg height="500" width="500" style="transform: translate(100px, 149px);">
         <g id="human_body" style="transform: translate(30px, 30px);">
           <g id="head" *ngIf="lifeValue <= 7">
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              stroke="black"
-              stroke-width="3"
-              fill="transparent"
-            />
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="transparent" />
           </g>
           <g id="eye1" *ngIf="lifeValue <= 6">
-            <line
-              x1="30"
-              y1="30"
-              x2="40"
-              y2="40"
-              style="stroke: rgb(255, 0, 0); stroke-width: 2;"
-            />
-            <line
-              x1="40"
-              y1="30"
-              x2="30"
-              y2="40"
-              style="stroke: rgb(255, 0, 0); stroke-width: 2;"
-            />
+            <line x1="30" y1="30" x2="40" y2="40" [style]="styleValue.style" />
+            <line x1="40" y1="30" x2="30" y2="40" [style]="styleValue.style" />
           </g>
           <g id="eye2" *ngIf="lifeValue <= 6">
-            <line
-              x1="55"
-              y1="30"
-              x2="65"
-              y2="40"
-              style="stroke: rgb(255, 0, 0); stroke-width: 2;"
-            />
-            <line
-              x1="65"
-              y1="30"
-              x2="55"
-              y2="40"
-              style="stroke: rgb(255, 0, 0); stroke-width: 2;"
-            />
+            <line x1="55" y1="30" x2="65" y2="40" [style]="styleValue.style" />
+            <line x1="65" y1="30" x2="55" y2="40" [style]="styleValue.style" />
           </g>
           <g id="body" *ngIf="lifeValue <= 5">
-            <line
-              x1="50"
-              y1="90"
-              x2="50"
-              y2="200"
-              style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-            />
+            <line x1="50" y1="90" x2="50" y2="200" [style]="styleValue.style" />
           </g>
           <g id="hand1" *ngIf="lifeValue <= 4">
-            <line
-              x1="30"
-              y1="140"
-              x2="50"
-              y2="120"
-              style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-            />
+            <line x1="30" y1="140" x2="50" y2="120" [style]="styleValue.style" />
           </g>
           <g id="hand2" *ngIf="lifeValue <= 3">
-            <line
-              x1="50"
-              y1="120"
-              x2="70"
-              y2="140"
-              style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-            />
+            <line x1="50" y1="120" x2="70" y2="140" [style]="styleValue.style" />
           </g>
           <g id="leg1" *ngIf="lifeValue <= 2">
-            <line
-              x1="30"
-              y1="220"
-              x2="50"
-              y2="200"
-              style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-            />
+            <line x1="30" y1="220" x2="50" y2="200" [style]="styleValue.style" />
           </g>
           <g id="leg2" *ngIf="lifeValue <= 1">
-            <line
-              x1="70"
-              y1="220"
-              x2="50"
-              y2="200"
-              style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-            />
+            <line x1="70" y1="220" x2="50" y2="200" [style]="styleValue.style" />
           </g>
           <g id="rope_and_stand">
             <g id="stand1" *ngIf="lifeValue <= 11">
-              <line
-                x1="250"
-                y1="220"
-                x2="150"
-                y2="220"
-                style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-              />
+              <line x1="250" y1="220" x2="150" y2="220" [style]="styleValue1.style" />
             </g>
             <g id="stand2" *ngIf="lifeValue <= 10">
-              <line
-                x1="200"
-                y1="-10"
-                x2="200"
-                y2="220"
-                style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-              />
+              <line x1="200" y1="-10" x2="200" y2="220" [style]="styleValue1.style" />
             </g>
             <g id="stand3" *ngIf="lifeValue <= 9">
-              <line
-                x1="50"
-                y1="-10"
-                x2="202"
-                y2="-10"
-                style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-              />
+              <line x1="50" y1="-10" x2="202" y2="-10" [style]="styleValue1.style" />
             </g>
             <g id="stand4" *ngIf="lifeValue <= 8">
-              <line
-                x1="50"
-                y1="-12"
-                x2="50"
-                y2="10"
-                style="stroke: rgb(255, 0, 0); stroke-width: 3;"
-              />
+              <line x1="50" y1="-12" x2="50" y2="10" [style]="styleValue1.style" />
             </g>
           </g>
         </g>
