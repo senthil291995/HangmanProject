@@ -19,10 +19,13 @@
 .keyboard-containe{
     margin-top:  100px;
 }
+
 .svg-container{
     width: 30%;
     background-color: lightgray;
-    height: 30%
+}
+.button-container{
+  width: 70%;
 }
 .string-hidden{
   border-radius: 6px;
@@ -41,6 +44,28 @@
   font-weight: 600;
   border-radius: 0.25rem;
 }
+.key-input-empty{
+  width: 2.75rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+.key-input-hidden {
+  background-color: gray;
+  width: 1.75rem;
+  height: 2rem;
+  border: 2px solid whitesmoke;
+  text-align: center;
+  line-height: 2rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+.rope-style{
+stroke: black;
+ stroke-width: 1;
+}
 
 .hide-input {
   display: none;
@@ -48,4 +73,8 @@
 
 .first-row, .second-row, .third-row {
   width: 100%;
+}
+.randomword{
+  width: 100%;
+  margin: 10px;
 }
